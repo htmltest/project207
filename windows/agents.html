@@ -1,0 +1,60 @@
+<div class="agents-window">
+    <div class="agents-window-title">Реестр страховых агентов и брокеров</div>
+
+    <a href="#" class="doc-item">
+        <div class="doc-item-title">Страховые посредники</div>
+        <div class="doc-item-info">Дата размещения 01.08.2022 в 10:06</div>
+        <div class="doc-item-size">Скачать</div>
+    </a>
+
+    <div class="agents-search">
+        <div class="agents-search-title">Поиск брокеров и агентов</div>
+        <div class="agents-search-notice">Для поиска информацию о конкретном страховом агенте или брокере, заполните любое поле</div>
+        <div class="agents-search-form">
+            <form action="ajax/agents.html" method="post">
+                <div class="agents-search-tabs-menu">
+                    <ul>
+                        <li class="active"><a href="#">Физические лица и индивидуальные предприниматели</a></li>
+                        <li><a href="#">Юридические лица</a></li>
+                    </ul>
+                </div>
+                <div class="agents-search-tabs-container">
+                    <div class="agents-search-tabs-content active">
+                        <div class="form-input"><span class="form-input-label">Фамилия</span><input type="text" name="fiz_family" value="" /></div>
+                        <div class="agents-search-form-row">
+                            <div class="agents-search-form-field">
+                                <div class="form-input"><span class="form-input-label">Номер удостоверения или договора</span><input type="text" name="fiz_number" value="" /></div>
+                            </div>
+                            <div class="agents-search-form-field">
+                                <div class="form-input"><span class="form-input-label">ИНН (При наличии)</span><input type="text" name="fiz_inn" value="" class="INN" /></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="agents-search-tabs-content">
+                        <div class="agents-search-form-row">
+                            <div class="agents-search-form-field">
+                                <div class="form-input"><span class="form-input-label">Название организации</span><input type="text" name="jur_name" value="" /></div>
+                            </div>
+                            <div class="agents-search-form-field">
+                                <div class="form-input"><span class="form-input-label">Сайт организации</span><input type="text" name="jur_url" value="" /></div>
+                            </div>
+                        </div>
+                        <div class="agents-search-form-row">
+                            <div class="agents-search-form-field">
+                                <div class="form-input"><span class="form-input-label">Номер удостоврения или договора</span><input type="text" name="jur_number" value="" /></div>
+                            </div>
+                            <div class="agents-search-form-field">
+                                <div class="form-input"><span class="form-input-label">ИНН (При наличии)</span><input type="text" name="jur_inn" value="" class="INN" /></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="agents-search-form-submit">
+                    <div class="form-submit"><input type="submit" value="Искать" class="btn" /></div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="agents-search-results"></div>
+</div>
