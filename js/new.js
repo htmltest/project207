@@ -22,13 +22,6 @@ $(document).ready(function() {
         e.preventDefault();
     });
 
-    $.validator.addMethod('INN',
-        function(curSeries, element) {
-            return this.optional(element) || curSeries.match(/^[0-9]{10}$/) || curSeries.match(/^[0-9]{12}$/);
-        },
-        'ИНН должен содержать 10 или 12 цифр'
-    );
-
     $('body').on('click', '.window-link', function(e) {
         var curLink = $(this);
         windowOpen(curLink.attr('href'));
@@ -92,15 +85,12 @@ function initForm(curForm) {
 
     var optionsINN =  {
         translation: {
-            'X': {
-                pattern: /[0-9]/
-            },
             'W': {
                 pattern: /[0-9]/, optional: true
             }
         }
     }
-    curForm.find('input.INN').mask('XXXXXXXXXXWW', optionsINN);
+    curForm.find('input.INN').mask('WWWWWWWWWWWW', optionsINN);
 }
 
 function windowOpen(linkWindow, dataWindow) {
@@ -143,9 +133,23 @@ function windowOpen(linkWindow, dataWindow) {
 
 function windowClose() {
     if ($('.window').length > 0) {
-        $('.window').remove();
-        $('html').removeClass('window-open');
-        $('#page-wrapper').css({'top': 0});
-        $(window).scrollTop($('#page-wrapper').data('curScroll'));
+
+        var isEmptyForm = true;
+        $('.window .form-input input').each(function() {
+            if ($(this).val() != '') {
+                isEmptyForm = false;
+            }
+        });
+        if (isEmptyForm) {
+            $('.window').remove();
+            $('html').removeClass('window-open');
+            $('#page-wrapper').css({'top': 0});
+            $(window).scrollTop($('#page-wrapper').data('curScroll'));
+        } else {
+            if (confirm('Закрыть форму?')) {
+                $('.window .form-input input').val('');
+                windowClose();
+            }
+        }
     }
 }
